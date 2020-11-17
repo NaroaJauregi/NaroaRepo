@@ -56,14 +56,17 @@ public class InsertarDatos {
 			)
 		{
 			pstmt.setInt (1, id_producto);
-			pstmt.setInt (1, id_producto);
-			pstmt.setInt (1, id_producto);
-			pstmt.setInt (1, id_producto);
-			pstmt.setInt (1, id_producto);
-			pstmt.setInt (1, id_producto);
-			pstmt.setInt (1, id_producto);
-			pstmt.setInt (1, id_producto);
+			pstmt.setFloat(2, precio);
+			pstmt.setFecha (3, fecha_recepcion);
+			pstmt.setInt (4, unidades);
+			pstmt.setString (5, marca);
+			pstmt.setString (6, modelo);
+			pstmt.setInt (7, talla);
+			pstmt.setComposicion(8, material_composicion);
+			pstmt.executeUpdate();
 			
+			}catch (SQLException e){
+				System.out.println(e.getMessage());
 			}
 			
 	}
