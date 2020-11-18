@@ -23,15 +23,15 @@ public class CrearTablaCamisetas {
 		String name = "Camisetas.db";
 		String url = "jdbc:sqlite:" + name;
 		
-		String sql="CREATE TABLE IF NOT EXITS warehouses (\n"
-				+ "id_producto PRIMARY KEY,\n"
-				+ "precio not null,\n"
-				+ "fecha_recepcion not null,\n"
-				+ "unidades not null,\n"
-				+ "marca not null,\n"
-				+ "modelo not nul,\n"
-				+ "talla not null,\n"
-				+ "material_composicion,\n"
+		String sql="CREATE TABLE IF NOT EXITS camisetas (\n"
+				+ "id_producto integer PRIMARY KEY,\n"
+				+ "precio float not null,\n"
+				+ "fecha_recepcion DATETIME not null,\n"
+				+ "unidades integer not null,\n"
+				+ "marca text not null,\n"
+				+ "modelo text not nul,\n"
+				+ "talla text not null,\n"
+				+ "material_composicion arraylist not null,\n"
 				+ ");";
 				
 		try

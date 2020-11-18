@@ -1,6 +1,7 @@
 package utilidades;
 
 import fecha.Fecha;
+import sqlite.FechasFechas;
 import utilidades.excepciones.IdNoValidaExcepcion;
 import utilidades.excepciones.NombreNoValidoException;
 import utilidades.excepciones.NumeroUnidadesNoValidoException;
