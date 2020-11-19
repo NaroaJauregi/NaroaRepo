@@ -11,7 +11,7 @@ package utilidades;
  *
  */
 
-public class Administrador extends usuario  {
+public class Administrador extends Usuario  {
 	
 	private int id_administrador;
 	

@@ -9,10 +9,10 @@ import java.sql.SQLException;
  *
  * @author Naroa_Jauregi
  */
-public class Camisetas
+public class Usuario
 {
     /**
-     * se conecta a una db
+     * Se conecta a una BD
      */
     public static void connect()
     {
@@ -20,11 +20,11 @@ public class Camisetas
 
         // parametros db
         
-        String path = "Camisetas.db";
+        String path = "Usuario.db";
         String url = "jdbc:sqlite:" + path;
         try
         {
-            // crea una conexion con una db
+            // crea una conexion a una db
         	
             conn = DriverManager.getConnection(url);
             System.out.println("Connection to SQLite has been established.");

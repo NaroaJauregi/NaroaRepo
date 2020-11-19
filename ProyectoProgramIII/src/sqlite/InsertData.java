@@ -21,7 +21,7 @@ public class InsertData {
 	
 	/**
 	 * 
-	 * @return CONEXION
+	 * @return CONEXION con camisetas
 	 */
 	
 	private Connection connect (){
@@ -40,6 +40,11 @@ public class InsertData {
 		return conn;
 	}
 	
+	/**
+	 * 
+	 * @return conexion con pantalon
+	 */
+	
 	private Connection connect2(){
 		String name = "Pantalon.db";
 		String url = "jbdc:sqlite:"+name;
@@ -55,6 +60,11 @@ public class InsertData {
 		return conn2;
 	}
 	
+	/**
+	 * 
+	 * @return conexion con zapatillas
+	 */
+	
 	private Connection connect3(){
 		String name = "Zapatillas.db";
 		String url = "jbdc:sqlite:"+name;
@@ -68,6 +78,46 @@ public class InsertData {
 		}
 		
 		return conn3;
+	}
+	
+	/**
+	 * 
+	 * @return conexion con usuario
+	 */
+	
+	private Connection connect4(){
+		String name = "Usuario.db";
+		String url = "jbdc:sqlite:"+name;
+		
+		Connection conn4=null;
+		
+		try{
+			conn4=DriverManager.getConnection(url);
+		}catch (SQLException e){
+			System.out.println(e.getMessage());
+		}
+		
+		return conn4;
+	}
+	
+	/**
+	 * 
+	 * @return conexion con administrador
+	 */
+	
+	private Connection connect5(){
+		String name = "Administrador.db";
+		String url = "jbdc:sqlite:"+name;
+		
+		Connection conn4=null;
+		
+		try{
+			conn4=DriverManager.getConnection(url);
+		}catch (SQLException e){
+			System.out.println(e.getMessage());
+		}
+		
+		return conn4;
 	}
 	
 	
@@ -166,8 +216,8 @@ public class InsertData {
 		try
 		
 			(
-				Connection conn2=this.connect();
-				PreparedStatement pstmt = conn2.prepareStatement(sql)
+				Connection conn3=this.connect();
+				PreparedStatement pstmt = conn3.prepareStatement(sql)
 			
 			)
 		{
@@ -178,6 +228,72 @@ public class InsertData {
 			pstmt.setString (5, marca);
 			pstmt.setString (6, modelo);
 			pstmt.setInt(7, talla);
+			pstmt.executeUpdate();
+			
+			}catch (SQLException e){
+				System.out.println(e.getMessage());
+			}
+	}
+	
+	/**
+	 * Insertar fila en la tabla usuario
+	 * @param id_usuario
+	 * @param nombre
+	 * @param id_compra_realizada
+	 * @param numero_comentario
+	 * @param contenido_comentario
+	 */
+	
+	public void insert4 (int id_usuario, String nombre, int id_compra_realizada, int numero_comentario, String contenido_comentario){
+		String sql="INSERT INTO usuario (id_usuario, nombre, id_compra_realizada, numero_comentario,contenido_comentario) VALUES (?,?,?,?,?)";
+		
+		try
+		
+			(
+				Connection conn4=this.connect();
+				PreparedStatement pstmt = conn4.prepareStatement(sql)
+			
+			)
+		{
+			pstmt.setInt (1, id_usuario);
+			pstmt.setString(2, nombre);
+			pstmt.setInt(3, id_compra_realizada);
+			pstmt.setInt(4, numero_comentario);
+			pstmt.setString(5, contenido_comentario);
+			pstmt.executeUpdate();
+			
+			}catch (SQLException e){
+				System.out.println(e.getMessage());
+			}
+	}
+	
+	/**
+	 * Insertar fila en la tabla administrador
+	 * @param id_usuario
+	 * @param id_administrador
+	 * @param nombre
+	 * @param id_compra_realizada
+	 * @param numero_comentario
+	 * @param contenido_comentario
+	 */
+	
+	public void insert5 (int id_usuario, int id_administrador, String nombre, int id_compra_realizada, int numero_comentario, String contenido_comentario){
+		String sql="INSERT INTO administrador (id_usuario, id_administrador, nombre, id_compra_realizada, numero_comentario,contenido_comentario) VALUES (?,?,?,?,?,?)";
+		
+		try
+		
+			(
+				Connection conn5=this.connect();
+				PreparedStatement pstmt = conn5.prepareStatement(sql)
+			
+			)
+		{
+			pstmt.setInt (1, id_usuario);
+			pstmt.setInt(2, id_administrador);
+			pstmt.setString(3, nombre);
+			pstmt.setInt(4, id_compra_realizada);
+			pstmt.setInt(5, numero_comentario);
+			pstmt.setString(6, contenido_comentario);
 			pstmt.executeUpdate();
 			
 			}catch (SQLException e){
@@ -806,6 +922,70 @@ public class InsertData {
 		app3.insert3(239, 75, "01-05-2020", 6, "ASTORE", "Trecking", 43);
 		app3.insert3(240, 75, "01-05-2020", 7, "ASTORE", "Trecking", 43);
 
+		InsertData app4 = new InsertData();
+		
+		app4.insert4(1, "Naroa1", 1, 1, "Bien1");
+		app4.insert4(2, "Naroa2", 2, 2, "Bien2");
+		app4.insert4(3, "Naroa3", 3, 3, "Bien3");
+		app4.insert4(4, "Naroa4", 4, 4, "Bien4");
+		app4.insert4(5, "Naroa5", 5, 5, "Bien5");
+		app4.insert4(6, "Naroa6", 6, 6, "Bien6");
+		app4.insert4(7, "Naroa7", 7, 7, "Bien7");
+		app4.insert4(8, "Naroa8", 8, 8, "Bien8");
+		app4.insert4(9, "Naroa9", 9, 9, "Bien9");
+		app4.insert4(10, "Naroa10", 10, 10, "Bien10");
+		app4.insert4(11, "Naroa11", 11, 11, "Bien11");
+		app4.insert4(12, "Naroa12", 12, 12, "Bien12");
+		app4.insert4(13, "Naroa13", 13, 13, "Bien13");
+		app4.insert4(14, "Naroa14", 14, 14, "Bien14");
+		app4.insert4(15, "Naroa15", 15, 15, "Bien15");
+		app4.insert4(16, "Naroa16", 16, 16, "Bien16");
+		app4.insert4(17, "Naroa17", 17, 17, "Bien17");
+		app4.insert4(18, "Naroa18", 18, 18, "Bien18");
+		app4.insert4(19, "Naroa19", 19, 19, "Bien19");
+		app4.insert4(20, "Naroa20", 20, 20, "Bien20");
+		app4.insert4(21, "Naroa21", 21, 21, "Bien21");
+		app4.insert4(22, "Naroa22", 22, 22, "Bien22");
+		app4.insert4(23, "Naroa23", 23, 23, "Bien23");
+		app4.insert4(24, "Naroa24", 24, 24, "Bien24");
+		app4.insert4(25, "Naroa25", 25, 25, "Bien25");
+		app4.insert4(26, "Naroa26", 26, 26, "Bien26");
+		app4.insert4(27, "Naroa27", 27, 27, "Bien27");
+		app4.insert4(28, "Naroa28", 28, 28, "Bien28");
+		app4.insert4(29, "Naroa29", 29, 29, "Bien29");
+		app4.insert4(30, "Naroa30", 30, 30, "Bien30");
+		app4.insert4(31, "Irati1", 31, 1, "Perfecto1");
+		app4.insert4(32, "Irati2", 32, 2, "Perfecto2");
+		app4.insert4(33, "Irati3", 33, 3, "Perfecto3");
+		app4.insert4(34, "Irati4", 34, 4, "Perfecto4");
+		app4.insert4(35, "Irati5", 35, 5, "Perfecto5");
+		app4.insert4(36, "Irati6", 36, 6, "Perfecto6");
+		app4.insert4(37, "Irati7", 37, 7, "Perfecto7");
+		app4.insert4(38, "Irati8", 38, 8, "Perfecto8");
+		app4.insert4(39, "Irati9", 39, 9, "Perfecto9");
+		app4.insert4(40, "Irati10", 40, 10, "Perfecto10");
+		app4.insert4(41, "Irati11", 41, 11, "Perfecto11");
+		app4.insert4(42, "Irati12", 42, 12, "Perfecto12");
+		app4.insert4(43, "Irati13", 43, 13, "Perfecto13");
+		app4.insert4(44, "Irati14", 44, 14, "Perfecto14");
+		app4.insert4(45, "Irati15", 45, 15, "Perfecto15");
+		app4.insert4(46, "Irati16", 46, 16, "Perfecto16");
+		app4.insert4(47, "Irati17", 47, 17, "Perfecto17");
+		app4.insert4(48, "Irati18", 48, 18, "Perfecto18");
+		app4.insert4(49, "Irati19", 49, 19, "Perfecto19");
+		app4.insert4(50, "Irati20", 50, 20, "Perfecto20");
+		app4.insert4(51, "Irati21", 51, 21, "Perfecto21");
+		app4.insert4(52, "Irati22", 52, 22, "Perfecto22");
+		app4.insert4(53, "Irati23", 53, 23, "Perfecto23");
+		app4.insert4(54, "Irati24", 54, 24, "Perfecto24");
+		app4.insert4(55, "Irati25", 55, 25, "Perfecto25");
+		app4.insert4(56, "Irati26", 56, 26, "Perfecto26");
+		app4.insert4(57, "Irati27", 57, 27, "Perfecto27");
+		app4.insert4(58, "Irati28", 58, 28, "Perfecto28");
+		app4.insert4(59, "Irati29", 59, 29, "Perfecto29");
+		app4.insert4(60, "Irati30", 60, 30, "Perfecto30");
+	
+		
 
 	}	
 

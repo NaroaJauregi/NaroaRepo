@@ -69,6 +69,46 @@ public class CreateDB {
 			System.out.println(e.getMessage());
 		}
 	}
+	
+	/**
+	 * BASE DE DATOS Usuario
+	 * @param filename
+	 */
+	
+	public static void crearBaseDeDatosUsuario(String filename){
+		
+		String url="jdbc:sqlite:" + filename;
+		try(Connection conn=DriverManager.getConnection(url)){
+			if (conn!=null){
+				DatabaseMetaData meta=conn.getMetaData();
+				System.out.println("El nombre del driver es: "+meta.getDriverName());
+				System.out.println("Se ha creado una nueva Base de Datos");
+			}
+		}catch (SQLException e){
+			System.out.println(e.getMessage());
+		}
+	}
+	
+	
+	/**
+	 * BASE DE DATOS administrador
+	 * @param filename
+	 */
+	
+	public static void crearBaseDeDatosAdministrador(String filename){
+		
+		String url="jdbc:sqlite:" + filename;
+		try(Connection conn=DriverManager.getConnection(url)){
+			if (conn!=null){
+				DatabaseMetaData meta=conn.getMetaData();
+				System.out.println("El nombre del driver es: "+meta.getDriverName());
+				System.out.println("Se ha creado una nueva Base de Datos");
+			}
+		}catch (SQLException e){
+			System.out.println(e.getMessage());
+		}
+	}
+	
 		
 	
 	/**
@@ -82,6 +122,10 @@ public class CreateDB {
 		crearBaseDeDatosPantalon("Pantalon.db");
 		
 		crearBaseDeDatosZapatillas("Zapatillas.db");
+		
+		crearBaseDeDatosUsuario("Usuario.db");
+		
+		crearBaseDeDatosAdministrador("Administrador.db");
 	}
 
 }

@@ -7,23 +7,25 @@ import java.sql.SQLException;
 
 /**
  *
- * @author sqlitetutorial.net
+ * @author Naroa_Jauregi
  */
 public class Pantalones
 {
     /**
-     * Connect to a sample database
+     * Se conecta a una bd
      */
     public static void connect()
     {
         Connection conn = null;
 
-        // db parameters
+        // parametros db
+        
         String path = "Pantalon.db";
         String url = "jdbc:sqlite:" + path;
         try
         {
-            // create a connection to the database
+            // crea una conexion con una db
+        	
             conn = DriverManager.getConnection(url);
             System.out.println("Connection to SQLite has been established.");
         }
@@ -50,7 +52,7 @@ public class Pantalones
 
 
     /**
-     * @param args the command line arguments
+     * @param args 
      */
     public static void main(String[] args)
     {
