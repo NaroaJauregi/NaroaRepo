@@ -14,68 +14,11 @@ import java.sql.SQLException;
 public class CreateDB {
 	
 	/**
-	 * BASE DE DATOS CAMISETA
+	 * BASE DE DATOS 
 	 * @param filename
 	 */
 	
-	public static void crearBaseDeDatosCamiseta(String filename){
-		
-		String url="jdbc:sqlite:" + filename;
-		try(Connection conn=DriverManager.getConnection(url)){
-			if (conn!=null){
-				DatabaseMetaData meta=conn.getMetaData();
-				System.out.println("El nombre del driver es: "+meta.getDriverName());
-				System.out.println("Se ha creado una nueva Base de Datos");
-			}
-		}catch (SQLException e){
-			System.out.println(e.getMessage());
-		}
-	}
-	
-	/**
-	 * BASE DE DATOS PANTALON
-	 * @param filename
-	 */
-	
-	public static void crearBaseDeDatosPantalon(String filename){
-			
-			String url="jdbc:sqlite:" + filename;
-			try(Connection conn=DriverManager.getConnection(url)){
-				if (conn!=null){
-					DatabaseMetaData meta=conn.getMetaData();
-					System.out.println("El nombre del driver es: "+meta.getDriverName());
-					System.out.println("Se ha creado una nueva Base de Datos");
-				}
-			}catch (SQLException e){
-				System.out.println(e.getMessage());
-			}
-		}
-	
-	/**
-	 * BASE DA DATOS ZAPATILLAS
-	 * @param filename
-	 */
-
-	public static void crearBaseDeDatosZapatillas(String filename){
-		
-		String url="jdbc:sqlite:" + filename;
-		try(Connection conn=DriverManager.getConnection(url)){
-			if (conn!=null){
-				DatabaseMetaData meta=conn.getMetaData();
-				System.out.println("El nombre del driver es: "+meta.getDriverName());
-				System.out.println("Se ha creado una nueva Base de Datos");
-			}
-		}catch (SQLException e){
-			System.out.println(e.getMessage());
-		}
-	}
-	
-	/**
-	 * BASE DE DATOS Usuario
-	 * @param filename
-	 */
-	
-	public static void crearBaseDeDatosUsuario(String filename){
+	public static void crearBaseDeDatosTienda(String filename){
 		
 		String url="jdbc:sqlite:" + filename;
 		try(Connection conn=DriverManager.getConnection(url)){
@@ -90,24 +33,6 @@ public class CreateDB {
 	}
 	
 	
-	/**
-	 * BASE DE DATOS administrador
-	 * @param filename
-	 */
-	
-	public static void crearBaseDeDatosAdministrador(String filename){
-		
-		String url="jdbc:sqlite:" + filename;
-		try(Connection conn=DriverManager.getConnection(url)){
-			if (conn!=null){
-				DatabaseMetaData meta=conn.getMetaData();
-				System.out.println("El nombre del driver es: "+meta.getDriverName());
-				System.out.println("Se ha creado una nueva Base de Datos");
-			}
-		}catch (SQLException e){
-			System.out.println(e.getMessage());
-		}
-	}
 	
 		
 	
@@ -117,15 +42,9 @@ public class CreateDB {
 	 */
 	
 	public static void main(String [] args){
-		crearBaseDeDatosCamiseta("Camisetas.db");
+		crearBaseDeDatosTienda("Tienda.db");
 		
-		crearBaseDeDatosPantalon("Pantalon.db");
-		
-		crearBaseDeDatosZapatillas("Zapatillas.db");
-		
-		crearBaseDeDatosUsuario("Usuario.db");
-		
-		crearBaseDeDatosAdministrador("Administrador.db");
+	
 	}
 
 }

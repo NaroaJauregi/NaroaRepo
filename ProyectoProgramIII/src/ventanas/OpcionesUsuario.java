@@ -6,11 +6,12 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class Identificacion extends JFrame {
+public class OpcionesUsuario extends JFrame {
 
 	private JPanel contentPane;
 
@@ -21,7 +22,7 @@ public class Identificacion extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Identificacion frame = new Identificacion();
+					OpcionesUsuario frame = new OpcionesUsuario();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -33,7 +34,7 @@ public class Identificacion extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Identificacion() {
+	public OpcionesUsuario() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -41,31 +42,32 @@ public class Identificacion extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JButton btnUsuario = new JButton("Usuario");
-		btnUsuario.addActionListener(new ActionListener() {
+		JLabel lblquDeseaRealizar = new JLabel("\u00BFQu\u00E9 desea realizar?");
+		lblquDeseaRealizar.setBounds(126, 31, 207, 20);
+		contentPane.add(lblquDeseaRealizar);
+		
+		JButton btnComprar = new JButton("Comprar");
+		btnComprar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				LoginUsuario usuario=new LoginUsuario();
-				usuario.setVisible(true);
-				Identificacion.this.setVisible(false);
-				
+				Compra compraUsuario=new Compra();
+				compraUsuario.setVisible(true);
+				OpcionesUsuario.this.setVisible(false);
 			}
 		});
-		btnUsuario.setBounds(56, 85, 115, 29);
-		contentPane.add(btnUsuario);
+		btnComprar.setBounds(50, 101, 115, 57);
+		contentPane.add(btnComprar);
 		
-		
-		
-		JButton btnAdministrador = new JButton("Administrador");
-		btnAdministrador.addActionListener(new ActionListener() {
+		JButton btnNewButton_1 = new JButton("Dejar un comentario");
+		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				LoginAdministrador admin=new LoginAdministrador();
-				admin.setVisible(true);
-				Identificacion.this.setVisible(false);
+				Comentar comentarUsuario=new Comentar();
+				comentarUsuario.setVisible(true);
+				OpcionesUsuario.this.setVisible(false);
 			}
+			
 		});
-		btnAdministrador.setBounds(232, 85, 139, 29);
-		contentPane.add(btnAdministrador);
-		
+		btnNewButton_1.setBounds(217, 101, 196, 57);
+		contentPane.add(btnNewButton_1);
 	}
 
 }

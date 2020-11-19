@@ -9,10 +9,10 @@ import java.sql.SQLException;
  *
  * @author Naroa_Jauregi
  */
-public class Administrador
+public class Tienda
 {
     /**
-     * Se conecta a una db
+     * se conecta a una db
      */
     public static void connect()
     {
@@ -20,11 +20,12 @@ public class Administrador
 
         // parametros db
         
-        String path = "Administrador.db";
+        String path = "Tienda.db";
         String url = "jdbc:sqlite:" + path;
         try
         {
             // crea una conexion con una db
+        	
             conn = DriverManager.getConnection(url);
             System.out.println("Connection to SQLite has been established.");
         }

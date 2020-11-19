@@ -6,12 +6,28 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import utilidades.Producto;
+
 import javax.swing.JLabel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.awt.event.ActionEvent;
+import javax.swing.JList;
+import javax.swing.JOptionPane;
+import javax.swing.JTabbedPane;
+import javax.swing.JRadioButton;
+import javax.swing.JComboBox;
+import javax.swing.JScrollBar;
+import javax.swing.JTree;
 
 public class Compra extends JFrame {
+	
+	Connection connection=null;
 
 	private JPanel contentPane;
 
@@ -29,6 +45,7 @@ public class Compra extends JFrame {
 				}
 			}
 		});
+		
 	}
 
 	/**
@@ -46,21 +63,60 @@ public class Compra extends JFrame {
 		lblquDeseaComprar.setBounds(128, 33, 236, 20);
 		contentPane.add(lblquDeseaComprar);
 		
-		JButton btnCamisetas = new JButton("Camisetas");
-		btnCamisetas.addActionListener(new ActionListener() {
+		JButton btnCAMISETAS = new JButton("CAMISETAS");
+		btnCAMISETAS.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				JList<Producto> camisetas=new JList<>();
+				try{
+					camisetas.add(camisetas);
+					
+				}catch (Exception e2){
+				JOptionPane.showMessageDialog(null, e2);
+				
+	
+				}
 			}
 		});
-		btnCamisetas.setBounds(15, 99, 115, 29);
-		contentPane.add(btnCamisetas);
+		btnCAMISETAS.setBounds(15, 82, 130, 29);
+		contentPane.add(btnCAMISETAS);
 		
-		JButton btnPantalones = new JButton("Pantalones");
-		btnPantalones.setBounds(159, 99, 115, 29);
+		JButton btnPantalones = new JButton("PANTALONES");
+		btnPantalones.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JList<Producto> pantalones=new JList<>();
+				try{
+					pantalones.add(pantalones);
+					
+				}catch (Exception e2){
+				JOptionPane.showMessageDialog(null, e2);
+	
+				}
+				
+			}
+		});
+		btnPantalones.setBounds(15, 127, 141, 29);
 		contentPane.add(btnPantalones);
 		
-		JButton btnZapatillas = new JButton("Zapatillas");
-		btnZapatillas.setBounds(298, 99, 115, 29);
+		JButton btnZapatillas = new JButton("ZAPATILLAS");
+		btnZapatillas.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JList<Producto> zapatillas=new JList<>();
+				try{
+					zapatillas.add(zapatillas);
+					
+				}catch (Exception e2){
+				JOptionPane.showMessageDialog(null, e2);
+				
+	
+				}
+				
+			}
+		});
+		btnZapatillas.setBounds(15, 178, 141, 29);
 		contentPane.add(btnZapatillas);
+		
+		JList list = new JList();
+		list.setBounds(210, 76, 203, 152);
+		contentPane.add(list);
 	}
-
 }
