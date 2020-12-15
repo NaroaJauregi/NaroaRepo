@@ -54,13 +54,13 @@ public class Camiseta extends Producto {
 	 * talla camiseta
 	 */
 	
-	private int talla;
+	private String talla;
 	
 	/**
 	 * composicion camiseta
 	 */
 	
-	private ArrayList <Composicion> material_composicion;
+	private String material_composicion;
 	
 	/**
 	 * Constructor
@@ -76,8 +76,8 @@ public class Camiseta extends Producto {
 	 * @throws ModeloCamisetaNoValidoException
 	 */
 	
-	public Camiseta(String id_producto, float precio, fecha.Fecha fecha_recepcion, int unidades, String marca, String modelo, int talla,
-			ArrayList<Composicion> material_composicion) 
+	public Camiseta(String id_producto, float precio, fecha.Fecha fecha_recepcion, int unidades, String marca, String modelo, String talla,
+			String material_composicion) 
 			throws IdNoValidaExcepcion,PrecioNoValidoException, FechaNoValidaException,NumeroUnidadesNoValidoException, MarcaCamisetaNoValidaException, ModeloCamisetaNoValidoException, NombreNoValidoException{
 		super(id_producto, precio, fecha_recepcion, unidades);
 		setMarca (marca);
@@ -162,18 +162,18 @@ public class Camiseta extends Producto {
 	 * @return talla
 	 */
 	
-	public int getTalla() {
+	public String getTalla() {
 		return talla;
 	}
 	
 	/**
 	 * Este es un setter que carga el valor de talla
 	 * 
-	 * @param talla - numero de talla
+	 * @param string - numero de talla
 	 */
 	
-	public void setTalla(int talla) {
-		this.talla = talla;
+	public void setTalla(String string) {
+		this.talla = string;
 	}
 	
 	/**
@@ -182,21 +182,38 @@ public class Camiseta extends Producto {
 	 * @return material_composicion
 	 */
 	
-	public ArrayList<Composicion> getmaterial_composicion() {
+	public String getmaterial_composicion() {
 		return material_composicion;
 	}
 	
 	/**
 	 * Este es un setter que carga el valor de material_composicion
 	 * 
-	 * @param material_composicion - elementos de los que está compuesto
+	 * @param material_composicion2 - elementos de los que está compuesto
 	 */
 	
-	public void setComposicion(ArrayList<Composicion> material_composicion) {
+	public void setComposicion(String material_composicion2) {
+		this.material_composicion = material_composicion2;
+	}
+	
+	
+	
+	
+	public Camiseta(String id_producto, String marca, String modelo, String talla, String material_composicion)
+			throws IdNoValidaExcepcion {
+		super(id_producto);
+		this.marca = marca;
+		this.modelo = modelo;
+		this.talla = talla;
 		this.material_composicion = material_composicion;
 	}
 	
 	
+
+	public Camiseta(String id_producto) throws IdNoValidaExcepcion {
+		super(id_producto);
+	}
+
 	/**
 	 * Calcula el precio del producto (camiseta) dependiendo de la marca
 	 *

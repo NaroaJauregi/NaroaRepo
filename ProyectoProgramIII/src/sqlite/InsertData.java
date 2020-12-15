@@ -45,19 +45,22 @@ public class InsertData {
 	 * @param modelo
 	 * @param talla
 	 * @param material_composicion
+	 * @throws SQLException 
 	 */
 	
 	
-	public void insert (int id_producto, String marca, String modelo, String talla, String material_composicion){
+	public void insert (int id_producto, String marca, String modelo, String talla, String material_composicion) throws SQLException{
 		String sql="INSERT INTO Camisetas (id_producto, marca, modelo, talla, material_composicion) VALUES (?,?,?,?,?)";
 		
-		try
+		Connection conn=null;
+		PreparedStatement pstmt= null;
 		
-			(
-				Connection conn=this.connect();
-				PreparedStatement pstmt = conn.prepareStatement(sql)
+		try{
+		
+				 conn=this.connect();
+				 pstmt = conn.prepareStatement(sql);
 			
-			)
+			
 		{
 			pstmt.setInt (1, id_producto);
 			pstmt.setString (2, marca);
@@ -65,9 +68,11 @@ public class InsertData {
 			pstmt.setString(4, talla);
 			pstmt.setString (5, material_composicion);
 			pstmt.executeUpdate();
-			
+		}
 			}catch (SQLException e){
 				System.out.println(e.getMessage());
+			}finally{
+				conn.close();
 			}
 	}
 	
@@ -78,18 +83,19 @@ public class InsertData {
 	 * @param modelo
 	 * @param talla
 	 * @param material_composicion
+	 * @throws SQLException 
 	 */
 	
-	public void insert2 (int id_producto, String marca, String modelo, String talla, String material_composicion){
+	public void insert2 (int id_producto, String marca, String modelo, String talla, String material_composicion) throws SQLException{
 		String sql="INSERT INTO Pantalones (id_producto, marca, modelo, talla, material_composicion) VALUES (?,?,?,?,?)";
 		
-		try
+		Connection conn=null;
+		PreparedStatement pstmt= null;
 		
-			(
-				Connection conn=this.connect();
-				PreparedStatement pstmt = conn.prepareStatement(sql)
-			
-			)
+		try{
+		
+				 conn=this.connect();
+				 pstmt = conn.prepareStatement(sql);
 		{
 			pstmt.setInt (1, id_producto);
 			pstmt.setString (2, marca);
@@ -97,9 +103,11 @@ public class InsertData {
 			pstmt.setString(4, talla);
 			pstmt.setString (5, material_composicion);
 			pstmt.executeUpdate();
-			
+		}
 			}catch (SQLException e){
 				System.out.println(e.getMessage());
+			}finally{
+				conn.close();
 			}
 	}
 	
@@ -109,27 +117,30 @@ public class InsertData {
 	 * @param marca
 	 * @param modelo
 	 * @param talla
+	 * @throws SQLException 
 	 */
 	
-	public void insert3 (int id_producto, String marca, String modelo, int talla){
+	public void insert3 (int id_producto, String marca, String modelo, int talla) throws SQLException{
 		String sql="INSERT INTO Zapatillas (id_producto, marca, modelo, talla) VALUES (?,?,?,?)";
 		
-		try
+		Connection conn=null;
+		PreparedStatement pstmt= null;
 		
-			(
-				Connection conn=this.connect();
-				PreparedStatement pstmt = conn.prepareStatement(sql)
-			
-			)
+		try{
+		
+				 conn=this.connect();
+				 pstmt = conn.prepareStatement(sql);
 		{
 			pstmt.setInt (1, id_producto);
 			pstmt.setString (2, marca);
 			pstmt.setString (3, modelo);
 			pstmt.setInt(4, talla);
 			pstmt.executeUpdate();
-			
+		}
 			}catch (SQLException e){
 				System.out.println(e.getMessage());
+			}finally{
+				conn.close();
 			}
 	}
 	
@@ -140,18 +151,19 @@ public class InsertData {
 	 * @param id_compra_realizada
 	 * @param numero_comentario
 	 * @param contenido_comentario
+	 * @throws SQLException 
 	 */
 	
-	public void insert4 (int id_usuario, String nombre, int id_compra_realizada, int numero_comentario, String contenido_comentario){
+	public void insert4 (int id_usuario, String nombre, int id_compra_realizada, int numero_comentario, String contenido_comentario) throws SQLException{
 		String sql="INSERT INTO Usuarios (id_usuario, nombre, id_compra_realizada, numero_comentario,contenido_comentario) VALUES (?,?,?,?,?)";
 		
-		try
+		Connection conn=null;
+		PreparedStatement pstmt= null;
 		
-			(
-				Connection conn=this.connect();
-				PreparedStatement pstmt = conn.prepareStatement(sql)
-			
-			)
+		try{
+		
+				 conn=this.connect();
+				 pstmt = conn.prepareStatement(sql);
 		{
 			pstmt.setInt (1, id_usuario);
 			pstmt.setString(2, nombre);
@@ -159,9 +171,11 @@ public class InsertData {
 			pstmt.setInt(4, numero_comentario);
 			pstmt.setString(5, contenido_comentario);
 			pstmt.executeUpdate();
-			
+		}
 			}catch (SQLException e){
 				System.out.println(e.getMessage());
+			}finally{
+				conn.close();
 			}
 	}
 	
@@ -173,49 +187,54 @@ public class InsertData {
 	 * @param id_compra_realizada
 	 * @param numero_comentario
 	 * @param contenido_comentario
+	 * @throws SQLException 
 	 */
 	
-	public void insert5 (int id_usuario, int id_administrador){
+	public void insert5 (int id_usuario, int id_administrador) throws SQLException{
 		String sql="INSERT INTO Administradores (id_usuario, id_administrador) VALUES (?,?)";
 		
-		try
+		Connection conn=null;
+		PreparedStatement pstmt= null;
 		
-			(
-				Connection conn=this.connect();
-				PreparedStatement pstmt = conn.prepareStatement(sql)
-			
-			)
+		try{
+		
+				 conn=this.connect();
+				 pstmt = conn.prepareStatement(sql);
 		{
 			pstmt.setInt (1, id_usuario);
 			pstmt.setInt(2, id_administrador);
 			pstmt.executeUpdate();
-			
+		}
 			}catch (SQLException e){
 				System.out.println(e.getMessage());
+			}finally{
+				conn.close();
 			}
 	}
 	
 	
 	
-	public void insert6 (int id_producto, float precio, String fecha_recepcion, int unidades){
+	public void insert6 (int id_producto, float precio, String fecha_recepcion, int unidades) throws SQLException{
 		String sql="INSERT INTO Productos (id_producto, precio, fecha_recepcion, unidades) VALUES (?,?,?,?)";
 		
-		try
+		Connection conn=null;
+		PreparedStatement pstmt= null;
 		
-			(
-				Connection conn=this.connect();
-				PreparedStatement pstmt = conn.prepareStatement(sql)
-			
-			)
+		try{
+		
+				 conn=this.connect();
+				 pstmt = conn.prepareStatement(sql);
 		{
 			pstmt.setInt (1, id_producto);
 			pstmt.setFloat(2, precio);
 			pstmt.setString(3, fecha_recepcion);
 			pstmt.setInt(4, unidades);
 			pstmt.executeUpdate();
-			
+		}
 			}catch (SQLException e){
 				System.out.println(e.getMessage());
+			}finally{
+				conn.close();
 			}
 	}
 	
@@ -224,9 +243,10 @@ public class InsertData {
 	/**
 	 * 
 	 * @param args
+	 * @throws SQLException 
 	 */
 	
-	public static void main (String[] args){
+	public static void main (String[] args) throws SQLException{
 		
 		/**
 		 * Insertar en la tabla camisetas

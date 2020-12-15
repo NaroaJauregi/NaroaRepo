@@ -57,7 +57,7 @@ public class Pantalon extends Producto{
 	 * composicion pantalon
 	 */
 	
-	private ArrayList<Composicion> material_composicion;
+	private String material_composicion;
 	
 	/**
 	 * Constructor
@@ -75,7 +75,7 @@ public class Pantalon extends Producto{
 	 */
 	
 	public Pantalon(String id_producto, float precio, fecha.Fecha fecha_recepcion, int unidades, String marca, String modelo, int talla,
-			ArrayList<Composicion> material_composicion) 
+			String material_composicion) 
 			throws IdNoValidaExcepcion,PrecioNoValidoException, FechaNoValidaException,NumeroUnidadesNoValidoException, MarcaPantalonNoValidaException, ModeloPantalonNoValidoException, NombreNoValidoException{
 		super(id_producto, precio, fecha_recepcion, unidades);
 		setMarca (marca);
@@ -179,18 +179,18 @@ public class Pantalon extends Producto{
 	 * @return material_composicion
 	 */
 	
-	public ArrayList<Composicion> getmaterial_composicion() {
+	public String getmaterial_composicion() {
 		return material_composicion;
 	}
 	
 	/**
 	 * Este es un setter que carga el valor de material_composicion
 	 * 
-	 * @param material_composicion - elementos de los que está compuesto
+	 * @param material_composicion2 - elementos de los que está compuesto
 	 */
 	
-	public void setComposicion(ArrayList<Composicion> material_composicion) {
-		this.material_composicion = material_composicion;
+	public void setComposicion(String material_composicion2) {
+		this.material_composicion = material_composicion2;
 	}
 	
 	/**

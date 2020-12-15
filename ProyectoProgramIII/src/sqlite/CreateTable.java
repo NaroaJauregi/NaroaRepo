@@ -14,47 +14,56 @@ import java.sql.Statement;
 
 public class CreateTable {
 	
+	 static String name = "Tienda.db";
+	 static String url = "jdbc:sqlite:" + name;
+	
 	/**
 	 * Crear nueva tabla productos en la Base de Datos 
+	 * @throws SQLException 
 	 */
 	
-	public static void crearNuevaTablaProductos(){
+	public static void crearNuevaTablaProductos() throws SQLException{
 		
-		String name = "Tienda.db";
-		String url = "jdbc:sqlite:" + name;
 		
+		
+		String drop_sql="DROP TABLE IF EXISTS Productos";
+		 
+		 
 		String sql="CREATE TABLE IF NOT EXISTS Productos (\n"
 				+ "id_producto integer PRIMARY KEY,\n"
 				+ "precio float not null,\n"
 				+ "fecha_recepcion DATETIME not null,\n"
 				+ "unidades integer not null\n"
 				+ ");";
-				
-		try
 		
-			(
-					Connection conn=DriverManager.getConnection(url);
-					Statement stmt=conn.createStatement()
-			)
-			
+		Connection conn=null;
+		Statement stmt=null;
+		try{
+					conn=DriverManager.getConnection(url);
+					stmt=conn.createStatement();
+		
 			{
 			stmt.execute(sql);
+			}
 			}catch (SQLException e){
 				System.out.println(e.getMessage());
+			
+			}finally{
+			conn.close();
 			}
-		
 	}
+	
 	
 	
 	
 	/**
 	 * Crear nueva tabla camisetas en la Base de Datos 
+	 * @throws SQLException 
 	 */
 	
-	public static void crearNuevaTablaCamisetas(){
+	public static void crearNuevaTablaCamisetas() throws SQLException{
 		
-		String name = "Tienda.db";
-		String url = "jdbc:sqlite:" + name;
+		String drop_sql="DROP TABLE IF EXISTS Camisetas";
 		
 		String sql="CREATE TABLE IF NOT EXISTS Camisetas (\n"
 				+ "id_producto integer not null,\n"
@@ -65,18 +74,23 @@ public class CreateTable {
 				+ "PRIMARY KEY (id_producto),\n"
 				+ "FOREIGN KEY (id_producto) REFERENCES Productos(id_producto)\n" 
 				+ ");";
-				
-		try
 		
-			(
-					Connection conn=DriverManager.getConnection(url);
-					Statement stmt=conn.createStatement()
-			)
-			
+		
+		
+		Connection conn=null;
+		Statement stmt=null;
+		try{
+					conn=DriverManager.getConnection(url);
+					stmt=conn.createStatement();
+		
 			{
 			stmt.execute(sql);
+			}
 			}catch (SQLException e){
 				System.out.println(e.getMessage());
+			
+			}finally{
+			conn.close();
 			}
 		
 	}
@@ -84,12 +98,12 @@ public class CreateTable {
 	
 	/**
 	 * Crear nueva tabla pantalones en la Base de Datos
+	 * @throws SQLException 
 	 */
 	
-	public static void crearNuevaTablaPantalones(){
+	public static void crearNuevaTablaPantalones() throws SQLException{
 		
-		String name = "Tienda.db";
-		String url = "jdbc:sqlite:" + name;
+		String drop_sql="DROP TABLE IF EXISTS Pantalones";
 		
 		String sql="CREATE TABLE IF NOT EXISTS Pantalones (\n"
 				+ "id_producto integer not null,\n"
@@ -100,30 +114,35 @@ public class CreateTable {
 				+ "PRIMARY KEY (id_producto),\n"
 				+ "FOREIGN KEY (id_producto) REFERENCES Productos(id_producto)\n" 
 				+ ");";
-				
-		try
 		
-			(
-					Connection conn=DriverManager.getConnection(url);
-					Statement stmt=conn.createStatement()
-			)
-			
+		Connection conn=null;
+		Statement stmt=null;
+		
+		try{
+					conn=DriverManager.getConnection(url);
+					stmt=conn.createStatement();
+		
 			{
 			stmt.execute(sql);
+			}
 			}catch (SQLException e){
 				System.out.println(e.getMessage());
+			
+			}finally{
+			conn.close();
 			}
+			
 		
 	}
 	
 	/**
 	 * Crear nueva tabla zapatillas en la Base de Datos
+	 * @throws SQLException 
 	 */
 	
-	public static void crearNuevaTablaZapatillas(){
+	public static void crearNuevaTablaZapatillas() throws SQLException{
 		
-		String name = "Tienda.db";
-		String url = "jdbc:sqlite:" + name;
+		String drop_sql="DROP TABLE IF EXISTS Zapatillas";
 		
 		String sql="CREATE TABLE IF NOT EXISTS Zapatillas (\n"
 				+ "id_producto integer not null,\n"
@@ -134,29 +153,32 @@ public class CreateTable {
 				+ "FOREIGN KEY (id_producto) REFERENCES Productos(id_producto)\n" 
 				+ ");";
 				
-		try
+		Connection conn=null;
+		Statement stmt=null;
+		try{
+					conn=DriverManager.getConnection(url);
+					stmt=conn.createStatement();
 		
-			(
-					Connection conn=DriverManager.getConnection(url);
-					Statement stmt=conn.createStatement()
-			)
-			
 			{
 			stmt.execute(sql);
+			}
 			}catch (SQLException e){
 				System.out.println(e.getMessage());
+			
+			}finally{
+			conn.close();
 			}
 		
 	}
 	
 	/**
 	 * Crear nueva tabla usuarios en la Base de Datos
+	 * @throws SQLException 
 	 */
 	
-	public static void crearNuevaTablaUsuarios(){
+	public static void crearNuevaTablaUsuarios() throws SQLException{
 		
-		String name = "tienda.db";
-		String url = "jdbc:sqlite:" + name;
+		String drop_sql="DROP TABLE IF EXISTS Usuarios";
 		
 		String sql="CREATE TABLE IF NOT EXISTS Usuarios (\n"
 				+ "id_usuario integer PRIMARY KEY,\n"
@@ -166,29 +188,32 @@ public class CreateTable {
 				+ "contenido_comentario String not null\n"
 				+ ");";
 				
-		try
+		Connection conn=null;
+		Statement stmt=null;
+		try{
+					conn=DriverManager.getConnection(url);
+					stmt=conn.createStatement();
 		
-			(
-					Connection conn=DriverManager.getConnection(url);
-					Statement stmt=conn.createStatement()
-			)
-			
 			{
 			stmt.execute(sql);
+			}
 			}catch (SQLException e){
 				System.out.println(e.getMessage());
+			
+			}finally{
+			conn.close();
 			}
 		
 	}
 	
 	/**
 	 * Crear nueva tabla administradores en la Base de Datos
+	 * @throws SQLException 
 	 */
 	
-	public static void crearNuevaTablaAdministradores(){
+	public static void crearNuevaTablaAdministradores() throws SQLException{
 		
-		String name = "Tienda.db";
-		String url = "jdbc:sqlite:" + name;
+		String drop_sql="DROP TABLE IF EXISTS Administradores";
 		
 		String sql="CREATE TABLE IF NOT EXISTS Administradores (\n"
 				+ "id_usuario integer not null,\n"
@@ -197,28 +222,46 @@ public class CreateTable {
 				+ "FOREIGN KEY (id_usuario) REFERENCES Usuarios (id_usuario)\n" 
 				+ ");";
 				
-		try
+		Connection conn=null;
+		Statement stmt=null;
+		try{
+					conn=DriverManager.getConnection(url);
+					stmt=conn.createStatement();
 		
-			(
-					Connection conn=DriverManager.getConnection(url);
-					Statement stmt=conn.createStatement()
-			)
-			
 			{
 			stmt.execute(sql);
+			}
 			}catch (SQLException e){
 				System.out.println(e.getMessage());
+			
+			}finally{
+			conn.close();
 			}
 		
 	}
 	
-	public static void main (String[] args){
+	
+/*	public static void closeLink(){
+		if(DriverManager.getConnection(url) !=null && DriverManager.getConnection(url).isOpen()){
+			DriverManager.getConnection(url).close();
+			DriverManager.getConnection(url)= null;
+		
+		}
+	}
+	
+	*/
+	
+	public static void main (String[] args) throws SQLException{
 		crearNuevaTablaProductos();
 		crearNuevaTablaCamisetas();
 		crearNuevaTablaPantalones();
 		crearNuevaTablaZapatillas();
 		crearNuevaTablaUsuarios();
 		crearNuevaTablaAdministradores();
+	//	closeLink();
+		
+		
 	}
+	
 
 }
