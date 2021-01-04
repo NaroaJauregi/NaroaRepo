@@ -6,17 +6,32 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import sqlite.GestionBaseDatos;
+import utilidades.Administrador;
+import utilidades.Usuario;
+
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.nio.channels.SelectionKey;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
+
+/**
+ * 
+ * @author Naroa Jauregi
+ * 
+ * Si la persona hace click en adimistrador, tendrá que ntroducir su nombre de administrador y su id_administrador 
+ *
+ */
 
 public class LoginAdministrador extends JFrame {
 
@@ -25,10 +40,13 @@ public class LoginAdministrador extends JFrame {
 	private JPanel contentPane;
 	private JTextField textFieldNombreAdministrador;
 	private JPasswordField passwordField;
-
+	private ArrayList<Administrador> administradores;
+	private ArrayList<Usuario> usuarios;
+	
 	/**
 	 * Launch the application.
 	 */
+	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -42,6 +60,7 @@ public class LoginAdministrador extends JFrame {
 		});
 	}
 
+
 	/**
 	 * Create the frame.
 	 */
@@ -52,6 +71,8 @@ public class LoginAdministrador extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		GestionBaseDatos bd=new GestionBaseDatos("Tienda.db");
+		
 		
 		JLabel lblUsuario = new JLabel("Nombre Administrador");
 		lblUsuario.setBounds(56, 50, 174, 20);
@@ -73,9 +94,12 @@ public class LoginAdministrador extends JFrame {
 		JButton btnLogin = new JButton("Login");
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+	
+				
 				try
 		        {
-				String query="select * from Usuarios where nombre=? and id_usuario=?";
+				String query="select * from usuarios where nombre=? and id_usuarios=?";
 				PreparedStatement pstmt=connection.prepareStatement(query);
 				pstmt.setString(0, textFieldNombreAdministrador.getText());
 				pstmt.setString(1,passwordField.getText());
@@ -113,6 +137,8 @@ public class LoginAdministrador extends JFrame {
 				
 			}
 		});
+		
+				
 		btnLogin.setBounds(100, 187, 115, 29);
 		contentPane.add(btnLogin);
 		

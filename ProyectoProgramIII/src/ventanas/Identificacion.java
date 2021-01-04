@@ -10,6 +10,14 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+/**
+ * 
+ * @author Naroa Jauregi
+ * 
+ * Es la primera ventana, donde la persona se identifica como administrador o usuario
+ *
+ */
+
 public class Identificacion extends JFrame {
 
 	private JPanel contentPane;
