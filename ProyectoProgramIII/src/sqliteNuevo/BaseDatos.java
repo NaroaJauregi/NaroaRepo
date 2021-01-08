@@ -1,4 +1,4 @@
-package sqlite;
+package sqliteNuevo;
 
 import java.sql.SQLException;
 
@@ -96,6 +96,10 @@ public class BaseDatos {
 				+ "PRIMARY KEY (id_usuario, id_administrador),\n"
 				+ "FOREIGN KEY (id_usuario) REFERENCES Usuarios (id_usuario)\n" 
 				+ ");");
+		
+		gbd1.createTable ("CREATE TABLE IF NOT EXISTS Marca (\n"
+				+"marca integer PRIMARY KEY \n"
+				+");");
 		
 		/**
 		 * Insertar fila en la tabla camisetas

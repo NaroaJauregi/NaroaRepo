@@ -1,4 +1,4 @@
-package sqlite;
+package sqliteNuevo;
 
 import java.lang.Thread.State;
 import java.sql.Connection;
@@ -38,6 +38,7 @@ public class GestionBaseDatos {
 	private ArrayList<Pantalon> pantalones;
 	private ArrayList<Zapatillas> zapatillas;
 	private ArrayList<Producto> productos;
+	private ArrayList<Producto> precios;
 		
 
 	/**
@@ -53,6 +54,7 @@ public class GestionBaseDatos {
 		this.pantalones=new ArrayList<Pantalon>();
 		this.zapatillas=new ArrayList<Zapatillas>();
 		this.productos=new ArrayList<Producto>();	
+		this.precios=new ArrayList<Producto>();
 	}
 
 
@@ -364,7 +366,38 @@ public class GestionBaseDatos {
 		return null;
 		
 	 }
+	 
+	 
+	 public ArrayList<Producto> devolverPrecios(){
+		 establecerConection();
+		 Statement stmt=null;
+		 ResultSet rs=null;
+		 String sql="SELECT precio FROM Productos";
+		 try{
+			 stmt=conn.createStatement();
+		 }catch (SQLException e){
+			 e.printStackTrace();
+		 }
+		 try{
+			 rs=stmt.executeQuery(sql);
+		 }catch (SQLException e){
+			 e.printStackTrace();
+		 }
+		 try{
+			 while (rs.next()){
+				 Producto precio =new Producto (rs.getInt(15));
+				 precios.add(precio);
+			 }
+			
+			 }catch (SQLException e){
+				 e.printStackTrace();
+			 }
+			 cerrarConection(conn);
+			 return precios;
+		 
+	 }
 	
+	  
 		public void cerrarConection(Connection conn) {
 			 if(conn!=null) {
 				 try {
