@@ -19,7 +19,7 @@ import java.awt.event.ActionEvent;
 public class OrdenarRanking extends JFrame {
 
 	private JPanel contentPane;
-	private PrecioProductos [] precioProd;
+	private int precioProd;
 
 	/**
 	 * Launch the application.
@@ -55,10 +55,10 @@ public class OrdenarRanking extends JFrame {
 		JButton btnMsBarato = new JButton("M\u00E1s barato");
 		btnMsBarato.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			precioProd=
-			MergeSortGenerico msg=new MergeSortGenerico<PrecioProductos>();
-			msg.mergeSort(precioProd, 0, precioProd.length-1);
-			String precio=precioProd [0].getPrecio();
+				precioProd=("select precio from productos");
+				MergeSortGenerico msg=new MergeSortGenerico<PrecioProductos>();
+				msg.mergeSort(precioProd);
+				String precio=precioProd [0].getPrecio();
 			
 			}
 		});

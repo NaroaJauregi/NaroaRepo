@@ -2,6 +2,8 @@ package ventanas;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -45,10 +47,25 @@ public class OpcionesAdministrador extends JFrame {
 		contentPane.add(lblquDeseaRealizar);
 		
 		JButton btnComprar = new JButton("Comprar");
+		btnComprar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Compra compraAdmin=new Compra();
+				compraAdmin.setVisible(true);
+				OpcionesAdministrador.this.setVisible(false);
+				}
+			});
 		btnComprar.setBounds(136, 73, 115, 29);
 		contentPane.add(btnComprar);
 		
 		JButton btnDejarUnComentario = new JButton("Dejar un comentario");
+		btnDejarUnComentario.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Comentar comentarAdmin=new Comentar();
+				comentarAdmin.setVisible(true);
+				OpcionesAdministrador.this.setVisible(false);
+			}
+			
+		});
 		btnDejarUnComentario.setBounds(105, 109, 177, 29);
 		contentPane.add(btnDejarUnComentario);
 		
@@ -57,6 +74,13 @@ public class OpcionesAdministrador extends JFrame {
 		contentPane.add(btnAdministracin);
 		
 		JButton btnCompararProductos = new JButton("Comparar Productos");
+		btnCompararProductos.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			OrdenarRanking ranking=new OrdenarRanking();
+			ranking.setVisible(true);
+			OpcionesAdministrador.this.setVisible(false);
+			}
+		});
 		btnCompararProductos.setBounds(90, 185, 203, 29);
 		contentPane.add(btnCompararProductos);
 	}

@@ -14,8 +14,6 @@ import java.sql.SQLException;
 
 public class SelectData {
 	
-	
-	
 	/**
 	 * 
 	 * @return la conexion con Tienda.db
@@ -33,8 +31,6 @@ public class SelectData {
 		}
 		return conn;
 	}
-	
-
 	
 	/**
 	 * selecciona todas las filas de la tabla camisetas
