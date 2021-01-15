@@ -41,20 +41,23 @@ public class OpcionesAdministrador extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblquDeseaRealizar = new JLabel("\u00BFQu\u00E9 desea realizar?");
-		lblquDeseaRealizar.setBounds(126, 37, 200, 20);
+		lblquDeseaRealizar.setBounds(118, 37, 200, 20);
 		contentPane.add(lblquDeseaRealizar);
 		
 		JButton btnComprar = new JButton("Comprar");
-		btnComprar.setBounds(136, 85, 115, 29);
+		btnComprar.setBounds(136, 73, 115, 29);
 		contentPane.add(btnComprar);
 		
 		JButton btnDejarUnComentario = new JButton("Dejar un comentario");
-		btnDejarUnComentario.setBounds(110, 130, 177, 29);
+		btnDejarUnComentario.setBounds(105, 109, 177, 29);
 		contentPane.add(btnDejarUnComentario);
 		
 		JButton btnAdministracin = new JButton("Administraci\u00F3n");
-		btnAdministracin.setBounds(126, 175, 138, 29);
+		btnAdministracin.setBounds(126, 149, 138, 29);
 		contentPane.add(btnAdministracin);
+		
+		JButton btnCompararProductos = new JButton("Comparar Productos");
+		btnCompararProductos.setBounds(90, 185, 203, 29);
+		contentPane.add(btnCompararProductos);
 	}
-
 }

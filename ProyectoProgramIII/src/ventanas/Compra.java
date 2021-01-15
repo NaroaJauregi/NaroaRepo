@@ -10,12 +10,15 @@ import javax.swing.border.EmptyBorder;
 import utilidades.Producto;
 
 import javax.swing.JLabel;
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 import java.awt.event.ActionEvent;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
@@ -30,6 +33,7 @@ public class Compra extends JFrame {
 	Connection connection=null;
 
 	private JPanel contentPane;
+	private DefaultListModel camisetas;
 
 	/**
 	 * Launch the application.
@@ -66,15 +70,15 @@ public class Compra extends JFrame {
 		JButton btnCAMISETAS = new JButton("CAMISETAS");
 		btnCAMISETAS.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JList<Producto> camisetas=new JList<>();
-				try{
-					camisetas.add(camisetas);
-					
-				}catch (Exception e2){
-				JOptionPane.showMessageDialog(null, e2);
+			
+				String camisetas= ("select*from camisetas");
+				JList lista=new Jlist();
+				DefaultListModel camisetasLista=new DefaultListModel();	
+				for(int i=1; i<=camisetas.length(); i++){
+					camisetasLista.addElement(i);
+					}
+					lista.setModel(camisetasLista);
 				
-	
-				}
 			}
 		});
 		btnCAMISETAS.setBounds(15, 82, 130, 29);
@@ -119,4 +123,7 @@ public class Compra extends JFrame {
 		list.setBounds(210, 76, 203, 152);
 		contentPane.add(list);
 	}
+
+
+	
 }

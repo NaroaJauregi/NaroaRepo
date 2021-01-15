@@ -18,20 +18,20 @@ public class SelectData {
 	
 	/**
 	 * 
-	 * @return la conexion con Pantalon.db
+	 * @return la conexion con Tienda.db
 	 */
 	
 	private Connection connect(){
 		String name="Tienda.db";
 		String url="jdbc:sqlite:"+name;
-		Connection conn2 = null;
+		Connection conn = null;
 		
 		try{
-			conn2=DriverManager.getConnection(url);
+			conn=DriverManager.getConnection(url);
 		}catch (SQLException e){
 			System.out.println(e.getMessage());
 		}
-		return conn2;
+		return conn;
 	}
 	
 
@@ -40,8 +40,8 @@ public class SelectData {
 	 * selecciona todas las filas de la tabla camisetas
 	 */
 	
-	public void selectAll(){
-		String sql="SELECT id_producto, precio, fecha_recepcion, unidades, marca, modelo, talla, material_composicion from camisetas";
+	public void selectCamiseta(){
+		String sql="SELECT id_producto, marca, modelo, talla, material_composicion from camisetas";
 		
 		try
 			(
@@ -55,9 +55,6 @@ public class SelectData {
 			System.out.println
 				(
 						rs.getInt("id_producto")+ "\t" +
-						rs.getFloat ("precio")+ "\t" +
-						rs.getString ("fecha_recepcion")+ "\t" +
-						rs.getInt("unidades")+ "\t" +
 						rs.getString("marca")+ "\t" +
 						rs.getString("modelo")+ "\t" +
 						rs.getInt("talla")+ "\t" +
@@ -72,8 +69,8 @@ public class SelectData {
 	 * selecciona todas las filas de la tabla zapatillas
 	 */
 	
-	public void selectAll2(){
-		String sql="SELECT id_producto, precio, fecha_recepcion, unidades, marca, modelo, talla, material_composicion from pantalones";
+	public void selectPantalon(){
+		String sql="SELECT id_producto, marca, modelo, talla, material_composicion from pantalones";
 		
 		try
 			(
@@ -87,9 +84,6 @@ public class SelectData {
 			System.out.println
 				(
 						rs2.getInt("id_producto")+ "\t" +
-						rs2.getFloat ("precio")+ "\t" +
-						rs2.getString ("fecha_recepcion")+ "\t" +
-						rs2.getInt("unidades")+ "\t" +
 						rs2.getString("marca")+ "\t" +
 						rs2.getString("modelo")+ "\t" +
 						rs2.getInt("talla")+ "\t" +
@@ -105,8 +99,8 @@ public class SelectData {
 	 * selecciona todas las filas de la tabla zapatillas
 	 */
 	
-	public void selectAll3(){
-		String sql="SELECT id_producto, precio, fecha_recepcion, unidades, marca, modelo, talla from zapatillas";
+	public void selectZapatillas(){
+		String sql="SELECT id_producto, marca, modelo, talla from zapatillas";
 		
 		try
 			(
@@ -120,9 +114,6 @@ public class SelectData {
 			System.out.println
 				(
 						rs3.getInt("id_producto")+ "\t" +
-						rs3.getFloat ("precio")+ "\t" +
-						rs3.getString ("fecha_recepcion")+ "\t" +
-						rs3.getInt("unidades")+ "\t" +
 						rs3.getString("marca")+ "\t" +
 						rs3.getString("modelo")+ "\t" +
 						rs3.getInt("talla")
@@ -137,7 +128,7 @@ public class SelectData {
 	 * selecciona todas las filas de la tabla usuarios
 	 */
 	
-	public void selectAll4(){
+	public void selectUsuario(){
 		String sql="SELECT id_usuario, nombre, id_compra_realizada, numero_comentario, contenido_comentario from usuarios";
 		
 		try
@@ -168,8 +159,8 @@ public class SelectData {
 	 * selecciona todas las filas de la tabla administrador
 	 */
 	
-	public void selectAll5(){
-		String sql="SELECT id_usuario, id_administrador, nombre, id_compra_realizada, numero_comentario, contenido_comentario from administradores";
+	public void selectAdministrador(){
+		String sql="SELECT id_usuario, id_administrador from administradores";
 		
 		try
 			(
@@ -183,11 +174,7 @@ public class SelectData {
 			System.out.println
 				(
 						rs5.getInt("id_usuario")+ "\t" +
-						rs5.getInt("id_administrador")+ "\t" +
-						rs5.getString("nombre")+ "\t" +
-						rs5.getInt ("id_compra_realizada")+ "\t" +
-						rs5.getInt("numero_comentario")+ "\t" +
-						rs5.getString("contenido_comentario")
+						rs5.getInt("id_administrador")
 	
 						);
 			}
@@ -200,7 +187,7 @@ public class SelectData {
 	 * Selecciona todas las filas de la tabla productos
 	 */
 	
-	public void selectAll6(){
+	public void selectProducto(){
 		String sql="SELECT id_producto,precio, fecha_recepcion, unidades from productos";
 		
 		try
@@ -229,23 +216,30 @@ public class SelectData {
 	
 
 	public static void main (String[] args){
+		
+		System.out.println("esta es la tabla camisetas");
 		SelectData app=new SelectData();
-		app.selectAll();
+		app.selectCamiseta();
 		
+		System.out.println("esta es la tabla pantalones");
 		SelectData app2= new SelectData();
-		app2.selectAll2();
+		app2.selectPantalon();
 		
+		System.out.println("esta es la tabla zaatillas");
 		SelectData app3=new SelectData();
-		app3.selectAll3();
+		app3.selectZapatillas();
 		
+		System.out.println("esta es la tabla usuarios");
 		SelectData app4=new SelectData();
-		app4.selectAll4();
+		app4.selectUsuario();
 		
+		System.out.println("esta es la tabla administradores");
 		SelectData app5=new SelectData();
-		app5.selectAll5();
+		app5.selectAdministrador();
 		
+		System.out.println("esta es la tabla productos");
 		SelectData app6=new SelectData();
-		app6.selectAll6();
+		app6.selectProducto();
 		
 	}
 }

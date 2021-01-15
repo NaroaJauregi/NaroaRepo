@@ -60,15 +60,14 @@ public class InsertData {
 				 conn=this.connect();
 				 pstmt = conn.prepareStatement(sql);
 			
-			
-		{
+				
 			pstmt.setInt (1, id_producto);
 			pstmt.setString (2, marca);
 			pstmt.setString (3, modelo);
-			pstmt.setString(4, talla);
+			pstmt.setString (4, talla);
 			pstmt.setString (5, material_composicion);
 			pstmt.executeUpdate();
-		}
+		
 			}catch (SQLException e){
 				System.out.println(e.getMessage());
 			}finally{
@@ -96,14 +95,14 @@ public class InsertData {
 		
 				 conn=this.connect();
 				 pstmt = conn.prepareStatement(sql);
-		{
+		
 			pstmt.setInt (1, id_producto);
 			pstmt.setString (2, marca);
 			pstmt.setString (3, modelo);
 			pstmt.setString(4, talla);
 			pstmt.setString (5, material_composicion);
 			pstmt.executeUpdate();
-		}
+		
 			}catch (SQLException e){
 				System.out.println(e.getMessage());
 			}finally{
@@ -130,13 +129,13 @@ public class InsertData {
 		
 				 conn=this.connect();
 				 pstmt = conn.prepareStatement(sql);
-		{
+		
 			pstmt.setInt (1, id_producto);
 			pstmt.setString (2, marca);
 			pstmt.setString (3, modelo);
 			pstmt.setInt(4, talla);
 			pstmt.executeUpdate();
-		}
+		
 			}catch (SQLException e){
 				System.out.println(e.getMessage());
 			}finally{
@@ -164,14 +163,14 @@ public class InsertData {
 		
 				 conn=this.connect();
 				 pstmt = conn.prepareStatement(sql);
-		{
+		
 			pstmt.setInt (1, id_usuario);
 			pstmt.setString(2, nombre);
 			pstmt.setInt(3, id_compra_realizada);
 			pstmt.setInt(4, numero_comentario);
 			pstmt.setString(5, contenido_comentario);
 			pstmt.executeUpdate();
-		}
+		
 			}catch (SQLException e){
 				System.out.println(e.getMessage());
 			}finally{
@@ -200,11 +199,11 @@ public class InsertData {
 		
 				 conn=this.connect();
 				 pstmt = conn.prepareStatement(sql);
-		{
+		
 			pstmt.setInt (1, id_usuario);
 			pstmt.setInt(2, id_administrador);
 			pstmt.executeUpdate();
-		}
+		
 			}catch (SQLException e){
 				System.out.println(e.getMessage());
 			}finally{
@@ -224,13 +223,13 @@ public class InsertData {
 		
 				 conn=this.connect();
 				 pstmt = conn.prepareStatement(sql);
-		{
+		
 			pstmt.setInt (1, id_producto);
 			pstmt.setFloat(2, precio);
 			pstmt.setString(3, fecha_recepcion);
 			pstmt.setInt(4, unidades);
 			pstmt.executeUpdate();
-		}
+		
 			}catch (SQLException e){
 				System.out.println(e.getMessage());
 			}finally{

@@ -16,6 +16,9 @@ import javax.swing.border.EmptyBorder;
 import org.omg.CORBA.INITIALIZE;
 import org.sqlite.SQLiteConnection;
 
+import sqlite.CreateTable;
+import sqlite.SelectData;
+import sqlite.Tienda;
 
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -49,6 +52,7 @@ public class LoginUsuario extends JFrame {
 		});
 	}
 
+
 	/**
 	 * Create the frame.
 	 */
@@ -81,13 +85,38 @@ public class LoginUsuario extends JFrame {
 		JButton btnLogin = new JButton("Login");
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				   
-				try
+			
+			String usuario=textFieldNombreUsuario.getText();	   
+			String contrasenya=String.valueOf(passwordField.getPassword());
+			
+			String usuarioTabla="select nombre from Usuarios";
+			String id_usuario = "select id_usuario from Usuarios";
+			
+			if (usuarioTabla.contains(usuario)){
+				if(id_usuario.contains(contrasenya)){
+					OpcionesUsuario opUsuarios=new OpcionesUsuario();
+					opUsuarios.setVisible(true);
+					LoginUsuario.this.dispose();
+				}else{
+					JOptionPane.showMessageDialog(LoginUsuario.this, "contraseña incorrecta");
+				}
+					
+			}else{
+				OpcionesUsuario opUsuario=new OpcionesUsuario();
+				opUsuario.setVisible(true);
+				LoginUsuario.this.dispose();
+			}
+			}
+		});
+		
+				
+			/*
+			try
 		        {
-				String query="select * from Usuarios where nombre=? and id_usuario=?";
+				String query="select * from Usuarios where id_usuario and nombre=?";
 				PreparedStatement pstmt=connection.prepareStatement(query);
-				pstmt.setString(0, textFieldNombreUsuario.getText());
-				pstmt.setString(1,passwordField.getText());
+				pstmt.setString(1, textFieldNombreUsuario.getText());
+				pstmt.setInt(0,passwordField.getPassword());
 		          
 		          ResultSet rs=pstmt.executeQuery();
 		          int count=0;
@@ -105,7 +134,7 @@ public class LoginUsuario extends JFrame {
 		          else{
 		        	  JOptionPane.showMessageDialog(null, "usuario y contaseña incorrectos. Intentalo de nuevo.");
 		          }
-		        	  
+		          
 		     
 				rs.close();
 				pstmt.close();
@@ -122,8 +151,12 @@ public class LoginUsuario extends JFrame {
 			}
 		});
 		
+		*/
+		
 		btnLogin.setBounds(69, 184, 115, 29);
 		contentPane.add(btnLogin);
+		
+		
 		
 		JButton btnCancel = new JButton("Cancel");
 		btnCancel.addActionListener(new ActionListener() {

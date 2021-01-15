@@ -95,14 +95,38 @@ public class LoginAdministrador extends JFrame {
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-	
 				
+				String admin=textFieldNombreAdministrador.getText();	   
+				String contrasenya=String.valueOf(passwordField.getPassword());
+				
+				String adminTabla="select nombre from Administradores";
+				String id_admin = "select id_usuario from Administradores";
+				
+				if (adminTabla.contains(admin)){
+					if(id_admin.contains(contrasenya)){
+						OpcionesAdministrador opAdmin=new OpcionesAdministrador();
+						opAdmin.setVisible(true);
+						LoginAdministrador.this.dispose();
+					}else{
+						JOptionPane.showMessageDialog(LoginAdministrador.this, "contraseña incorrecta");
+					}
+						
+				}else{
+					OpcionesAdministrador opAdministrador=new OpcionesAdministrador();
+					opAdministrador.setVisible(true);
+					LoginAdministrador.this.dispose();
+				}
+				}
+			});
+				
+				
+				/*
 				try
 		        {
 				String query="select * from usuarios where nombre=? and id_usuarios=?";
 				PreparedStatement pstmt=connection.prepareStatement(query);
 				pstmt.setString(0, textFieldNombreAdministrador.getText());
-				pstmt.setString(1,passwordField.getText());
+				pstmt.setInt(1,passwordField.getX());
 		          
 		          ResultSet rs=pstmt.executeQuery();
 		          int count=0;
@@ -137,7 +161,7 @@ public class LoginAdministrador extends JFrame {
 				
 			}
 		});
-		
+		*/
 				
 		btnLogin.setBounds(100, 187, 115, 29);
 		contentPane.add(btnLogin);

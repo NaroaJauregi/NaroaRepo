@@ -41,10 +41,10 @@ public class CreateTable {
 		try{
 					conn=DriverManager.getConnection(url);
 					stmt=conn.createStatement();
-		
-			{
+			
 			stmt.execute(sql);
-			}
+			
+			
 			}catch (SQLException e){
 				System.out.println(e.getMessage());
 			
@@ -241,6 +241,8 @@ public class CreateTable {
 	}
 	
 	
+	
+	
 /*	public static void closeLink(){
 		if(DriverManager.getConnection(url) !=null && DriverManager.getConnection(url).isOpen()){
 			DriverManager.getConnection(url).close();
@@ -259,6 +261,7 @@ public class CreateTable {
 		crearNuevaTablaUsuarios();
 		crearNuevaTablaAdministradores();
 	//	closeLink();
+
 		
 		
 	}
